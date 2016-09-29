@@ -16,7 +16,6 @@ function updateTime () {
 }
 function updateClick () {
   timerId = setInterval(updateTime, 1000)
-  start.removeEventListener('click', updateClick)
 }
 
 function pauseClick () {
@@ -24,11 +23,10 @@ function pauseClick () {
 }
 
 function resetClick () {
-  clearInterval(timerId)
+  pauseClick()
   var head1 = body.querySelector('#timer')
   head1.textContent = 'Stop Watch'
   seconds = 0
-  start.addEventListener('click', updateClick)
 }
 
 start.addEventListener('click', updateClick)
